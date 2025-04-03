@@ -1,0 +1,89 @@
+@charset "utf-8";
+.container{
+    max-width: 600px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.header.reverse{
+    justify-content: start;
+    flex-direction:row-reverse;
+}
+.header.reverse a{
+    margin-right: 16px;
+}
+.completed td {
+    background-color: #d3d3d3;
+}
+
+.star {
+    color: var(--bs-yellow)
+}
+
+.task-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+table td,
+table th {
+    border: none;
+    border-bottom: solid 1px #ccc;
+}
+
+
+.circle-btn {
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    background-color: #d3d3d3;
+}
+
+/* チェックボックスを隠す */
+.complete-checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+}
+
+/* カスタムチェックボックスのデザイン */
+.complete-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    /* ボックスのサイズ */
+    height: 24px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+}
+
+/* チェック時のアイコンを表示（大きくする） */
+.complete-checkbox:checked+label::before {
+    content: "\f00c";
+    /* FontAwesome のチェックマーク */
+    font-family: "Font Awesome 6 Free";
+    /* FontAwesome のフォント */
+    font-weight: 900;
+    /* 太字 */
+    color: green;
+    /* ✓マークの色 */
+    font-size: 36px;
+    /* ✓を大きくする（ボックスからはみ出る） */
+    position: absolute;
+    top: -18px;
+    /* ボックスからはみ出すように調整 */
+    left: -6px;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: end;
+}
