@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="container py-4">
-
+<body>
+<div class="edit-wrapper container py-4">
     <header class="header reverse">
         <h1>タスク編集</h1>
         <a href="../" class="btn mb-5 circle-btn"><i class="fa-solid fa-arrow-left"></i></a>
@@ -27,16 +27,18 @@
             <label class="form-label">締切日</label>
             <input type="date" name="deadline" class="form-control" value="{{ task[3] }}">
         </div>
-        <div class="mb-3 ">
+        <div class="mb-3 important-wrapper">
             <input id="important" class="align-middle complete-checkbox" type="checkbox" name="important" value="1" {% if task[4] == 1 %}checked{% endif %}>
             <label for="important"></label>
             <label class="form-label">重要</label>
         </div>
         <button type="submit" class="btn btn-primary">変更</button>
     </form>
-    <form method="POST" action="/complete">
+    <form method="POST" action="/complete" class="complete-wrapper">
         <input type="hidden" name="task_id" value="{{ task[0] }}">
-        <button type="submit" class="btn btn-success mt-3">完了</button>
+        <button type="submit" class="btn btn-success mt-3 complete-btn"><i class="fa-solid fa-check"></i>完了</button>
     </form>
+
+</div>
 </body>
 </html>

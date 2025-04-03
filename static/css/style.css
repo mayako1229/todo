@@ -41,7 +41,36 @@ table th {
     display: block;
     background-color: #d3d3d3;
 }
+.circle-btn:hover {
+    border: 1px solid #ccc;
+}
+textarea{
+    height: 200px;
+    resize: none;
+    border: 1px solid #ccc;
 
+}
+
+.edit-wrapper{
+    position: relative;
+}
+.complete-wrapper{
+    position: absolute;
+    bottom: 24px;
+    right: 12px;
+}
+.complete-btn i{
+    padding-right: 10px;
+}
+.mb-3.important-wrapper{
+    display: flex;
+    align-items: center; /* 垂直方向の中央揃え */
+    gap: 5px; /* チェックボックスとラベルの間にスペースを追加 */
+}
+.important-wrapper .form-label{
+    margin: 0;
+
+}
 /* チェックボックスを隠す */
 .complete-checkbox {
     width: 0;

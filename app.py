@@ -43,9 +43,9 @@ def add_task():
         title = request.form['title']
         memo = request.form['memo']
         deadline = request.form['deadline']
-        important = request.form.get('important', '0') 
-        print('important' + important)
-
+        # チェックボックスの値を取得（1: チェックあり、0: チェックなし）
+        important = request.form.get('important', '0') #チェックがない場合は0を設定
+        #print('important' + important)
         with sqlite3.connect('todo.db') as conn:
             c = conn.cursor()
             c.execute('INSERT INTO task (title, memo, deadline, important) VALUES (?, ?, ?, ?)', (title, memo, deadline, important))
@@ -71,7 +71,11 @@ def edit_task(task_id):
             return redirect('/')
         conn.row_factory = sqlite3.Row  
         c.execute('SELECT id, title, memo, deadline, important, completed_at FROM task WHERE id=?', (task_id,))
+
         task = c.fetchone()
+        #taskが存在しない場合の処理を追加
+        if task is None:
+            return render_template('404.html'), 404
     return render_template('edit.html', task=task)
 
 # タスク順番更新API
