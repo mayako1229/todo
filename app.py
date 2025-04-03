@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 app = Flask(__name__)
 BASE_DIR = "/opt/render/"  # Render で永続化するディレクトリ
-DATABASE_PATH = os.path.join(BASE_DIR, "data.db")
+DATABASE_PATH = os.path.join(BASE_DIR, "todo.db")
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DATABASE_PATH}"
 
